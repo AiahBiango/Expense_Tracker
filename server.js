@@ -44,10 +44,12 @@ app.use(session({
 // Import routes
 const authRoutes = require('./src/routes/authRoutes');
 const userRoutes = require('./src/routes/userRoutes');
+const expenseRoutes = require('./src/routes/expenseRoutes'); 
 
 // Use the imported routes
 app.use('/auth', authRoutes); // Mount the auth routes at /auth
 app.use('/user', userRoutes); // Mount the user routes at /user
+app.use('/expenses', expenseRoutes); // Mount the expense route at /expenses
 
 // Serve static files (if needed)
 app.use(express.static(path.join(__dirname, 'public')));
