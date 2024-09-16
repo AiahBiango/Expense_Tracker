@@ -11,6 +11,11 @@ router.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/html/register.html'));
 });
 
+// Route to serve the registration form
+router.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public/html/login.html'));
+});
+
 // Route for user registration
 router.post('/register', registerUser);
 

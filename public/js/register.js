@@ -1,3 +1,4 @@
+// public/js/register.js
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
     const authMsg = document.getElementById('auth-msg');
@@ -20,12 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            if (!response.ok) {
-                authMsg.textContent = data.error || 'User already exists!';
+            if (response.ok) {
+                // Use the redirectTo URL from the server response to redirect
+                authMsg.textContent = data.message;
+                setTimeout(() => {
+                    window.location.href = data.redirectTo;
+                }, 2000);  // Redirect after 2 seconds
             } else {
-                authMsg.textContent = 'User created successfully';
-                // Optionally, redirect to another page or clear the form
-                // window.location.href = '/login.html';
+                // Display error message
+                authMsg.textContent = data.error || 'User already exists!';
             }
 
         } catch (err) {
