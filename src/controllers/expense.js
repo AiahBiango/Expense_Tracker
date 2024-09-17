@@ -88,26 +88,4 @@ const calculateTotalExpenses = async (req, res) => {
         res.status(500).json({ error: 'Error calculating total expenses', details: error });
     }
 };
-
-
 module.exports = { createExpense, getExpenses, updateExpense, deleteExpense, calculateTotalExpenses};    
-
-
-// const createExpense = async (req, res) => {
-//     const { user_id, amount, description, category, date } = req.body;
-
-//     try {
-//         const newExpense = await Expense.create({
-//             user_id,
-//             amount,
-//             description,
-//             category,
-//             date: date || new Date()
-//         });
-
-//         return res.status(201).json({ message: 'Expense created successfully', expense: newExpense });
-//     } catch (error) {
-//         return res.status(500).json({ error: 'Error creating expense', details: error });
-//     }
-// };
-
