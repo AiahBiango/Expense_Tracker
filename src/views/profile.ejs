@@ -42,14 +42,11 @@
     <h1>Welcome, <%= user.username %>!</h1>
     <p>Email: <%= user.email %></p>
 
-    <h2>Your Total Expenses: $<%= totalExpenses %></h2>
-
-    <h2>Your Expenses:</h2>
-
     <!-- Check if the user has expenses -->
     <% if (expenses.length === 0) { %>
         <p class="no-expenses">You currently have no expense records.</p>
     <% } else { %>
+        <h2>Your Expenses:</h2>
         <table>
             <thead>
                 <tr>
@@ -70,6 +67,7 @@
                 <% }); %>
             </tbody>
         </table>
+        <h2>Your Total Expenses: $<%= totalExpenses %></h2>
     <% } %>
 
     <div>

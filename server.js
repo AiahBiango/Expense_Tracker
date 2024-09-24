@@ -52,6 +52,11 @@ app.use(session({
 app.use(express.json()); // For parsing application/json bodies
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
+// Route to serve the home page
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/index.html'));
+});
+
 // Mount routes
 app.use('/', routes); // Mount the routes from 'src/routes/index.js'
 

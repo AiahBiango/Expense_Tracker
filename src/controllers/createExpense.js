@@ -31,7 +31,7 @@ const createExpense = async (req, res) => {
             date: date || new Date(),
         });
 
-        return res.status(201).json({ message: 'Expense created successfully', expense: newExpense });
+        return res.status(201).json({ message: 'Expense created successfully', expense: newExpense, redirectTo: './profile' });
     } catch (error) {
         console.error('Error creating expense:', error);
         return res.status(500).json({ error: 'Failed to create expense' });
