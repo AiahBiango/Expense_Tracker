@@ -1,0 +1,89 @@
+ /* public/css/create_expense.css */
+body {
+    background-color: #F2F2F2;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container-register {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#title .material-icons {
+    font-size: 32px;
+    margin-right: 10px;
+}
+
+/* Form styling */
+#expense-form .input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#expense-form .input-addon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#expense-form .input-addon .material-icons {
+    font-size: 24px;
+    color: #888;
+}
+
+/* Input field styling */
+#expense-form input[type="text"],
+#expense-form input[type="number"],
+#expense-form input[type="date"],
+#expense-form select {
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 40px; /* padding-left accommodates icon */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+}
+
+#expense-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Submit button styling */
+#expense-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#expense-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+ 
+ 

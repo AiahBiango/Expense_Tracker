@@ -60,16 +60,30 @@ const loginUser = async (req, res) => {
         req.session.userId = user.id;
         req.session.userEmail = user.email;
 
-        // Send back the token and redirect URL
-        return res.status(200).json({
-            message: 'Login successful',
-            token,
-            redirectTo: `/user/profile/${user.id}` // Redirect to the user's profile page
+        // Save session manually before sending response
+        req.session.save((err) => {
+            if (err) {
+                console.error('Failed to save session:', err);
+                return res.status(500).json({ error: 'Failed to save session' });
+            }
+
+            // Print session data for verification
+            console.log('Session data after login:', req.session);
+
+            // Generate the redirect URL based on the user's ID
+            const redirectUrl = "/user/profile";
+
+            // Send back the token and redirect URL
+            return res.status(200).json({
+                message: 'Login successful',
+                token,
+                redirectTo: redirectUrl // Send the user's specific profile url and Redirect to the user's profile page
+            });
         });
+
     } catch (error) {
         return res.status(500).json({ error: 'Error logging in', details: error.message });
     }
 };
-
 
 module.exports = { loginUser };

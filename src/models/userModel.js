@@ -41,11 +41,14 @@ const User = db.define('User', {
     timestamps: true, // Enables automatic management of createdAt and updatedAt
 });
 
- 
-User.beforeCreate(async (user, options) => {
-    //password hashing
-    const salt = await bcrypt.genSalt(10); // Generate salt asynchronously
-    user.password = await bcrypt.hash(user.password, salt); // Hash the password asynchronously
-});
-
 module.exports = User;
+
+
+
+
+ 
+// User.beforeCreate(async (user, options) => {
+//     //password hashing
+//     const salt = await bcrypt.genSalt(10); // Generate salt asynchronously
+//     user.password = await bcrypt.hash(user.password, salt); // Hash the password asynchronously
+// });
