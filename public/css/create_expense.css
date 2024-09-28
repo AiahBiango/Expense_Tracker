@@ -102,7 +102,13 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    align;
+    /* align:  */
+}
+
+.currency-symbol {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 8px;
 }
 
 .button:hover {

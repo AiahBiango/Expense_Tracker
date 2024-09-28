@@ -25,22 +25,3 @@ const getTotalExpenses = async (req, res) => {
 };
 
 module.exports = { getTotalExpenses };
-
-
-// // src/controllers/Calculate.js
-
-// const Expense = require('../models/expenseModel');
-
-// // Calculate total expenses for a user
-// const calculateTotalExpenses = async (req, res) => {
-//     const userId = req.query.user_id; // Assuming user_id is passed as a query parameter
-
-//     try {
-//         const totalExpenses = await Expense.sum('amount', { where: { user_id: userId } });
-        
-//         res.status(200).json({ totalExpenses });
-//     } catch (error) {
-//         res.status(500).json({ error: 'Error calculating total expenses', details: error });
-//     }
-// };
-// module.exports = { calculateTotalExpenses };    

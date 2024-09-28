@@ -39,41 +39,4 @@ const createExpense = async (req, res) => {
 };
 
 module.exports = { createExpense };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // src/controllers/createExpense.js
-
-// const Expense = require('../models/expenseModel');
-
-// // Create a new expense
-// const createExpense = async (req, res) => {
-//     const { amount, description, category, date } = req.body;
-//     const user_id = req.user.id; // Assuming req.user is populated by authentication middleware
-
-//     try {
-//         const newExpense = await Expense.create({
-//             user_id, // Use the user_id from the authenticated user
-//             amount,
-//             description,
-//             category,
-//             date: date || new Date() // Use the current date if no date is provided
-//         });
-
-//         return res.status(201).json({ message: 'Expense created successfully', expense: newExpense });
-//     } catch (error) {
-//         return res.status(500).json({ error: 'Error creating expense', details: error.message });
-//     }
-// };
-// module.exports = { createExpense }; 
+ 

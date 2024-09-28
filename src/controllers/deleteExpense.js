@@ -34,30 +34,3 @@ const deleteExpense = async (req, res) => {
 };
 
 module.exports = { deleteExpense };
-
-
-// // src/controllers/deleteExpense.js
-
-// const Expense = require('../models/expenseModel');
-
-
-// // Delete expense for a user
-// const deleteExpense = async (req, res) => {
-//     const { id } = req.params;
-
-//     try {
-//         const expense = await Expense.findByPk(id);
-//         if (!expense) {
-//             return res.status(404).json({ error: 'Expense not found' });
-//         }
-
-//         await expense.destroy();
-
-//         return res.status(200).json({ message: 'Expense deleted successfully' });
-//     } catch (error) {
-//         return res.status(500).json({ error: 'Error deleting expense', details: error });
-//     }
-// };
-
-// module.exports = { deleteExpense };    
-

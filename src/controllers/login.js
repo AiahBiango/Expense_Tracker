@@ -9,21 +9,25 @@ const loginUser = async (req, res) => {
     const { emailOrUsername, password } = req.body;
 
     try {
-        // Convert to lowercase
-        const searchValue = emailOrUsername.toLowerCase();
+        // // Convert to lowercase
+        // const searchValue = emailOrUsername.toLowerCase();
 
         // Check if user exists by email or username (both in lowercase)
         const user = await User.findOne({
             where: {
                 [Op.or]: [
-                    { email: searchValue },
-                    { username: searchValue }
+                    // { email: searchValue },
+                    // { username: searchValue }
+                    { email: emailOrUsername },
+                    { username: emailOrUsername }
+
                 ]
             }
         });
 
         if (!user) {
-            console.log('User not found for:', searchValue);
+            // console.log('User not found for:', searchValue);
+            console.log('User not found for:', emailOrUsername);
             return res.status(400).json({ error: 'User not found' });
         }
 
@@ -40,7 +44,8 @@ const loginUser = async (req, res) => {
         // Check if password is correct
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            console.log('Password mismatch for user:', searchValue);
+            // console.log('Password mismatch for user:', searchValue);
+            console.log('Password mismatch for user:', emailOrUsername);
             return res.status(400).json({ error: 'Invalid credentials' });
         }
 

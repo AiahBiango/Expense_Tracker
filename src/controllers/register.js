@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
     try {
         // Convert to lowercase
         const normalizedEmail = email.toLowerCase();
-        const normalizedUsername = username.toLowerCase();
+        // const normalizedUsername = username.toLowerCase();
 
         // Check if user already exists
         const existingUser = await User.findOne({ where: { email: normalizedEmail } });
@@ -32,7 +32,8 @@ const registerUser = async (req, res) => {
 
         // Create the new user
         const newUser = await User.create({
-            username: normalizedUsername,
+            // username: normalizedUsername,
+            username: username,
             email: normalizedEmail,
             password: hashedPassword
         });

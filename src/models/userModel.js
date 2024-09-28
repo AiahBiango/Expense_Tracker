@@ -1,4 +1,4 @@
-// src/models/userModel.js
+ // src/models/userModel.js
 
 const { DataTypes } = require('sequelize');
 const db = require('../config/dbConfig'); // Import the configured Sequelize instance
@@ -27,6 +27,10 @@ const User = db.define('User', {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    profilePhoto: {
+        type: DataTypes.STRING, // Store the file path or URL as a string
+        allowNull: true, // Allow null, as users may not have uploaded a photo initially
     },
     createdAt: {
         type: DataTypes.DATE,

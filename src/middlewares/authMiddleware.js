@@ -1,13 +1,3 @@
-// src/middleware/authMiddleware.js
-
-// const authMiddleware = (req, res, next) => {
-//     console.log('Session:', req.session);
-//     if (!req.session.userId) {
-//         console.log('Unauthorized access! No userId in session');
-//         return res.status(401).json({ error: 'Unauthorized access' });
-//     }
-//     next();
-// };
 
 const authMiddleware = (req, res, next) => {
     // If you're using sessions
@@ -31,7 +21,17 @@ const authMiddleware = (req, res, next) => {
     return res.status(401).redirect('/login');
 };
 
-
-
-
 module.exports = { authMiddleware };
+
+
+
+// src/middleware/authMiddleware.js
+
+// const authMiddleware = (req, res, next) => {
+//     console.log('Session:', req.session);
+//     if (!req.session.userId) {
+//         console.log('Unauthorized access! No userId in session');
+//         return res.status(401).json({ error: 'Unauthorized access' });
+//     }
+//     next();
+// };

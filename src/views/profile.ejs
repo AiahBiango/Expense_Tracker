@@ -1,74 +1,69 @@
-<!-- src/views/profile.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <style>
-        /* Basic styling for table and buttons */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .no-expenses {
-            color: #ff0000;
-            font-weight: bold;
-        }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <meta name="author" content="Aiah Biango">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
-    <h1>Welcome, <%= user.username %>!</h1>
-    <p>Email: <%= user.email %></p>
+    <!-- Profile Section -->
+    <div class="profile-container">
+        <!-- Profile Photo -->
+        <div>
+            <% if (user.profilePhoto) { %>
+                <img src="<%= user.profilePhoto %>" alt="Profile Photo" class="profile-photo">
+            <% } else { %>
+                <img src="/images/default-profile.png" alt="Default Profile Photo" class="profile-photo"> <!-- Default image if no photo is uploaded -->
+            <% } %>
+        </div>
 
-    <!-- Check if the user has expenses -->
-    <% if (expenses.length === 0) { %>
-        <p class="no-expenses">You currently have no expense records.</p>
-    <% } else { %>
-        <h2>Your Expenses:</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% expenses.forEach(expense => { %>
+        <!-- Profile Photo Upload Form -->
+        <div class="profile-photo-form">
+            <h2>Update Profile Photo</h2>
+            <form action="/user/profile/photo" method="POST" enctype="multipart/form-data">
+                <input type="file" name="profilePhoto" accept="image/*" required>
+                <button type="submit">Upload Photo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="welcome-container">
+        <h1>Welcome, <%= user.username %>!</h1>
+        <p>Email: <%= user.email %></p>
+    </div>
+
+    <!-- Expenses Section -->
+    <div class="expenses-container">
+        <% if (expenses.length === 0) { %>
+            <p class="no-expenses">You currently have no expense records.</p>
+        <% } else { %>
+            <h2>Your Expenses:</h2>
+            <table>
+                <thead>
                     <tr>
-                        <td>$<%= expense.amount %></td>
-                        <td><%= expense.description %></td>
-                        <td><%= expense.category %></td>
-                        <td><%= expense.date.toLocaleDateString() %></td>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Date</th>
                     </tr>
-                <% }); %>
-            </tbody>
-        </table>
-        <h2>Your Total Expenses: $<%= totalExpenses %></h2>
-    <% } %>
+                </thead>
+                <tbody>
+                    <% expenses.forEach(expense => { %>
+                        <tr>
+                            <td>Le<%= expense.amount %></td>
+                            <td><%= expense.description %></td>
+                            <td><%= expense.category %></td>
+                            <td><%= new Date(expense.date).toLocaleDateString() %></td> <!-- Ensuring the date is formatted -->
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <h2>Your Total Expenses: Le<%= totalExpenses %></h2>
+        <% } %>
+    </div>
 
     <div>
         <!-- Button to navigate to the create expense page -->

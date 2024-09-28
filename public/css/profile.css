@@ -1,0 +1,79 @@
+         /* Basic styling for table and buttons */
+         table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .no-expenses {
+            color: #ff0000;
+            font-weight: bold;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Layout to prevent overlap */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 50px; /* Add spacing between profile section and expenses section */
+        }
+
+        /* Style the profile photo */
+        /* Ensure the profile photo is circular */
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Ensures the circular shape */
+            object-fit: cover; /* Ensures the image covers the entire circle without distortion */
+            border: 2px solid #ccc; /* Optional: add a subtle border around the profile photo */
+            display: block; /* Ensures the image is treated as a block element to avoid unexpected formatting issues */
+        }
+
+
+        /* Center the welcome message and email */
+        .welcome-container {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-left: 50px; /* Offset for better positioning */
+        }
+
+        /* Style for the profile photo upload form */
+        .profile-photo-form {
+            margin-top: 20px;
+        }
+        .profile-photo-form button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .profile-photo-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ensure the expenses section is placed below the profile photo */
+        .expenses-container {
+            margin-top: 50px; /* Space between photo and the table */
+        }

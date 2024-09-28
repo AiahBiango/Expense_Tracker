@@ -24,24 +24,3 @@ const getUserExpenses = async (req, res) => {
 };
 
 module.exports = { getUserExpenses };
-
-
-
-
-// // src/controllers/getExpense.js
-
-// const Expense = require('../models/expenseModel');
-
-// // Get all expenses for a user
-// const getExpenses = async (req, res) => {
-//     const userId = req.query.user_id; // Assuming user_id is passed as a query parameter
-
-//     try {
-//         const expenses = await Expense.findAll({ where: { user_id: userId } });
-//         res.status(200).json(expenses);
-//     } catch (error) {
-//         res.status(500).json({ error: 'Failed to fetch expenses', details: error });
-//     }
-// };
-
-// module.exports = { getExpenses };    
