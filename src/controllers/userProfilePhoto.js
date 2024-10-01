@@ -5,7 +5,7 @@ const User = require('../models/userModel');
 
 const uploadProfilePhoto = async (req, res) => {
     try {
-        const userId = req.session.userId; // Assuming session stores userId
+        const userId = req.session.userId; // Get user id if session stores userId
         const user = await User.findByPk(userId);
 
         if (!user) {

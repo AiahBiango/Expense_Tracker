@@ -48,37 +48,15 @@
                         <th>Description</th>
                         <th>Category</th>
                         <th>Date</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% expenses.forEach(expense => { %>
-                        <tr id="expense-<%= expense.id %>">
-                            <!-- Editable fields -->
-                            <td class="editable" data-id="<%= expense.id %>" data-field="amount">
-                                <span>Le<%= expense.amount %></span>
-                                <input type="number" value="<%= expense.amount %>" style="display:none;">
-                            </td>
-                            <td class="editable" data-id="<%= expense.id %>" data-field="description">
-                                <span><%= expense.description %></span>
-                                <input type="text" value="<%= expense.description %>" style="display:none;">
-                            </td>
-                            <td class="editable" data-id="<%= expense.id %>" data-field="category">
-                                <span><%= expense.category %></span>
-                                <input type="text" value="<%= expense.category %>" style="display:none;">
-                            </td>
-                            <td class="editable" data-id="<%= expense.id %>" data-field="date">
-                                <span><%= new Date(expense.date).toLocaleDateString() %></span>
-                                <input type="date" value="<%= new Date(expense.date).toISOString().split('T')[0] %>" style="display:none;">
-                            </td>
-
-                            <!-- Edit/Delete Actions -->
-                            <td>
-                                <button class="edit-button" data-id="<%= expense.id %>">Edit</button>
-                                <button class="delete-button" data-id="<%= expense.id %>">Delete</button>
-                                <button class="save-button" data-id="<%= expense.id %>" style="display:none;">Save</button>
-                                <button class="cancel-button" data-id="<%= expense.id %>" style="display:none;">Cancel</button>
-                            </td>
+                        <tr>
+                            <td>Le<%= expense.amount %></td>
+                            <td><%= expense.description %></td>
+                            <td><%= expense.category %></td>
+                            <td><%= new Date(expense.date).toLocaleDateString() %></td> <!-- Ensuring the date is formatted -->
                         </tr>
                     <% }); %>
                 </tbody>
@@ -93,7 +71,7 @@
             <button class="button">Add New Expense</button>
         </a>
     </div>
-    <script src="/js/updateExpense.js"></script>
-    <script src="/js/deleteExpense.js"></script>
+
+    <script src="/js/profile.js"></script>
 </body>
 </html>

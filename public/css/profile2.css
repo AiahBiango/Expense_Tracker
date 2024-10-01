@@ -91,21 +91,15 @@ th {
 }
 
 .editable span {
-    display: block; /* Show span by default */
+    display: block;
 }
 
-/* When a row is in editing mode, show the input fields and hide the spans */
-tr.editing .editable input {
-    display: block; /* Make input fields visible */
-}
-
-tr.editing .editable span {
-    display: none; /* Hide the span when editing */
-}
-
-/* Highlight the row being edited */
-tr.editing td {
-    background-color: #fff3cd; /* Light yellow background for editing rows */
+.edit-button, .delete-button, .save-button, .cancel-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 /* Edit button styles */
@@ -148,4 +142,9 @@ tr.editing td {
 
 .delete-button:hover {
     background-color: #d32f2f;
+}
+
+/* Highlight the row being edited */
+tr.editing td {
+    background-color: #fff3cd; /* Light yellow background for editing rows */
 }
